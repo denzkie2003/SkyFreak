@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/media.css">
+  <link rel="stylesheet" href="fontawesome/css/all.css">
+</head>
+
+<body>
+ 
+  <!-- Navigation -->
+  <div class="navigator">
+    <h2>SkyFreak SoundTrack</h2>
+    <small>Listen to different kinds of music for free</small>
+  </div>
+  <div class="mode">DARK MODE</div>
+  <div class="lightMode">LIGHT MODE</div>
+  <!-- Music Player -->
+  <div align="center">
+  <div class="music-player">
+    <div class="music-top-container">
+      <div class="playlist-btn" id="menu"><i class="fas fa-music" onclick="showList()"></i></div>
+      <div class="numbers"><span id="current-num">0</span>/<span id="list-num">0</span></div>
+    </div>
+  <div class="player">
+    <div id="song-title"></div>
+    <img id="imageIcon" src="" />
+    <div style="display: flex;">
+      <div id="current-time">0</div>
+      <input type="range" name="duration" id="duration" min="0" max="100" value="0" onchange="changeDur()"/>
+    </div>
+    <button id="prev" onclick="prevSong()"><i class="fas fa-backward"></i></button>
+    <button id="play" onclick="justPlay()"><i class="fas fa-play"></i></button>
+    <button id="next" onclick="nextSong()"><i class="fas fa-forward"></i></button>
+    <p class="developer">Developed By: DenZ</p>
+  </div>
+  <div class="list-music">
+    <span id="closeList" onclick="hideList()">&times;</span>
+    <div class="content">
+      <p>PLAYLIST:</p>
+      <ul id="songList"></ul>
+    </div>
+  </div>
+  </div>
+  </div>
+  <!-- Javascript -->
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $('body').on('load', function(){
+      $('.lightMode').hide();
+    });
+    $('.mode').on('click', function(){
+      $('.mode').hide();
+      $('.lightMode').show();
+      $('body').css('background-color','#000');
+    });
+    $('.lightMode').on('click', function(){
+      $('.mode').show();
+      $('.lightMode').hide();
+      $('body').css('background-color','floralwhite');
+    });
+  });
+  </script>
+  <script src="js/main.js"></script>
+  <script src="js/showmenu.js"></script>
+</body>
+</html>
